@@ -20,8 +20,8 @@ const LandingPage = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, {
-        publicKey: process.env.USER_ID,
+      .sendForm(import.meta.env.SERVICE_ID, import.meta.env.TEMPLATE_ID, form.current, {
+        publicKey: import.meta.env.USER_ID,
       })
       .then(
         () => {
