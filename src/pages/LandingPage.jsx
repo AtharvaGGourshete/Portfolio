@@ -189,7 +189,7 @@ const LandingPage = () => {
           <span className="text-4xl font-bold p-10 text-center text-white">
             Connect
           </span>
-          <div className="w-[1500px] bg-gradient-to-r from-[#ffffff] to-[#ffffff] h-[600px] rounded-lg backdrop-blur-2xl">
+          <div className="w-[100px] bg-gradient-to-r from-[#ffffff] to-[#ffffff] h-[600px] rounded-lg backdrop-blur-2xl">
             <div className="grid grid-cols-2">
               <div className="h-[600px] grid justify-center items-center">
                 <img
@@ -200,32 +200,35 @@ const LandingPage = () => {
                 />
               </div>
               <div className="h-[600px] grid justify-center items-center">
-      <form  className="flex flex-col gap-4 w-96">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          className="border p-2 rounded"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          className="border p-2 rounded"
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          className="border p-2 rounded"
-          required
-        ></textarea>
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
-          Send Message
-        </button>
-      </form>
-    </div>
+                <form className="flex flex-col gap-4 w-96">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    className="border p-2 rounded"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    className="border p-2 rounded"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    className="border p-2 rounded"
+                    required
+                  ></textarea>
+                  <button
+                    type="submit"
+                    className="bg-blue-500 text-white p-2 rounded"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
