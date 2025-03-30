@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const handleScroll = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="bg-[#00171F] text-gray-400 p-10 h-40 font-[Poppins]">
       <div className="grid grid-cols-3 items-center ">
@@ -11,11 +14,11 @@ const Footer = () => {
           Atharva Gourshete
         </div>
         <div className="flex gap-10 justify-center">
-          <ul className="cursor-pointer hover:underline">Home</ul>
-          <ul className="cursor-pointer hover:underline">About</ul>
-          <ul className="cursor-pointer hover:underline">Skills</ul>
-          <ul className="cursor-pointer hover:underline">Projects</ul>
-          <ul className="cursor-pointer hover:underline">Contact Me</ul>
+          <ul className="cursor-pointer hover:underline" onClick={() => handleScroll('home')}>Home</ul>
+          <ul className="cursor-pointer hover:underline" onClick={() => handleScroll('about')}>About</ul>
+          <ul className="cursor-pointer hover:underline" onClick={() => handleScroll('skills')}>Skills</ul>
+          <ul className="cursor-pointer hover:underline" onClick={() => handleScroll('projects')}>Projects</ul>
+          <ul className="cursor-pointer hover:underline" onClick={() => handleScroll('contact')}>Contact Me</ul>
         </div>
         <div className="flex justify-center gap-5">
           <Link to={"https://www.linkedin.com/in/atharva-gourshete-b2a66927b/"}>

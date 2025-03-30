@@ -79,12 +79,12 @@ const LandingPage = () => {
             </div>
             <div className="flex gap-2 mt-5 ">
               <div>
-                <Button className="text-lg cursor-pointer bg-white text-black">
+                <Button onClick={() => handleScroll('projects')} className="text-lg cursor-pointer bg-white text-black">
                   View Projects
                 </Button>
               </div>
               <div>
-                <Button className="text-lg cursor-pointer bg-white text-black">
+                <Button onClick={() => handleScroll('contact')} className="text-lg cursor-pointer bg-white text-black">
                   Connect
                 </Button>
               </div>
@@ -210,13 +210,13 @@ const LandingPage = () => {
         <span className="text-4xl font-bold p-10 text-center">Projects</span>
       </div>
       {/* Connect */}
-      <div id="contact" className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#62cff4] to-[#2c67f2]">
+      <div id="contact" className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#62cff4] to-[#2c67f2] ">
         <div className="text-4xl grid justify-center gap-5">
           <span className="text-4xl font-bold p-10 text-center text-white">
             Connect
           </span>
-          <div className="w-[1200px] bg-gradient-to-r from-[#ffffff] to-[#ffffff] h-[600px] rounded-lg backdrop-blur-2xl">
-            <div className="grid grid-cols-2">
+          <div className="w-[1200px] bg-blue-300 h-[600px] rounded-lg backdrop-blur-2xl ">
+            <div className="grid grid-cols-2 mb-10">
               <div className="h-[600px] grid justify-center items-center">
                 
                 <img
@@ -231,7 +231,7 @@ const LandingPage = () => {
                 <form
                   ref={form}
                   onSubmit={sendEmail}
-                  className="flex flex-col gap-6 h-[500px] text-black w-[500px] bg-white/10 backdrop-blur-lg p-8 rounded-lg shadow-lg border border-white/20 text-sm mb-10"
+                  className="flex flex-col gap-6 h-[500px] text-black w-[500px] bg-white/10 backdrop-blur-lg p-8 rounded-lg shadow-lg border border-white/20 text-sm "
                 >
                   <h2 className="text-2xl font-bold text-black text-center">
                    Hey, Lets Connect !!
@@ -245,7 +245,7 @@ const LandingPage = () => {
                       type="text"
                       name="user_name"
                       placeholder="Enter your name"
-                      className="border border-gray-300 p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      className="border border-gray-300 p-3 rounded-lg bg-white/20 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
                       required
                     />
                   </div>
@@ -258,7 +258,7 @@ const LandingPage = () => {
                       type="email"
                       name="email"
                       placeholder="Enter your email"
-                      className="border border-gray-300 p-3 rounded-lg bg-white/20 text-black placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      className="border border-gray-300 p-3 rounded-lg bg-white/20 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
                       required
                     />
                   </div>
@@ -271,7 +271,7 @@ const LandingPage = () => {
                       name="message"
                       placeholder="Write your message here..."
                       rows="4"
-                      className="border border-gray-300 p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+                      className="border  border-gray-300 p-3 rounded-lg bg-white/20 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
                       required
                     ></textarea>
                   </div>
