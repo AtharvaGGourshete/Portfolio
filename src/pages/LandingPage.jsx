@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,6 +14,24 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 const LandingPage = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, {
+        publicKey: process.env.USER_ID,
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   return (
     <>
       {" "}
@@ -189,7 +208,7 @@ const LandingPage = () => {
           <span className="text-4xl font-bold p-10 text-center text-white">
             Connect
           </span>
-          <div className="w-[100px] bg-gradient-to-r from-[#ffffff] to-[#ffffff] h-[600px] rounded-lg backdrop-blur-2xl">
+          <div className="w-[1200px] bg-gradient-to-r from-[#ffffff] to-[#ffffff] h-[600px] rounded-lg backdrop-blur-2xl">
             <div className="grid grid-cols-2">
               <div className="h-[600px] grid justify-center items-center">
                 <img
@@ -200,10 +219,14 @@ const LandingPage = () => {
                 />
               </div>
               <div className="h-[600px] grid justify-center items-center">
-                <form className="flex flex-col gap-4 w-96">
+                <form
+                  ref={form}
+                  onSubmit={sendEmail}
+                  className="flex flex-col gap-4 w-96"
+                >
                   <input
                     type="text"
-                    name="name"
+                    name="user_name"
                     placeholder="Your Name"
                     className="border p-2 rounded"
                     required
@@ -223,6 +246,7 @@ const LandingPage = () => {
                   ></textarea>
                   <button
                     type="submit"
+                    value={send}
                     className="bg-blue-500 text-white p-2 rounded"
                   >
                     Send Message
