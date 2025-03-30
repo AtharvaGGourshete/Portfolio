@@ -20,9 +20,12 @@ const LandingPage = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm(import.meta.env.SERVICE_ID, import.meta.env.TEMPLATE_ID, form.current, {
-        publicKey: import.meta.env.USER_ID,
-      })
+      .sendForm(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_USER_ID
+      )
       .then(
         () => {
           console.log("SUCCESS!");
@@ -35,7 +38,7 @@ const LandingPage = () => {
   return (
     <>
       {" "}
-      <div className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#62cff4] to-[#2c67f2]">
+      <div id="home" className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#62cff4] to-[#2c67f2]">
         <div className="text-4xl grid justify-center gap-5">
           <span className="font-extrabold text-white text-8xl mt-52">
             Welcome to my Portfolio.
@@ -50,7 +53,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="h-auto bg-[#003459] text-white grid justify-center font-[Poppins]">
+      <div id="about" className="h-auto bg-[#003459] text-white grid justify-center font-[Poppins]">
         <span className="text-4xl font-bold p-10 text-center">About Me</span>
         <div className="grid grid-cols-2 gap-10 items-center justify-center">
           <div className="grid grid-rows-3 p-10">
@@ -116,7 +119,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="h-auto bg-[#007EA7] text-white grid justify-center font-[Poppins]">
+      <div id="skills" className="h-auto bg-[#007EA7] text-white grid justify-center font-[Poppins]">
         <span className="text-4xl font-bold p-10 text-center">Skills</span>
         <div className="grid grid-cols-4 gap-20 mb-56">
           <div className="h-40">
@@ -199,11 +202,11 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="h-auto bg-[#003459] text-white grid justify-center font-[Poppins]">
+      <div id="projects" className="h-auto bg-[#003459] text-white grid justify-center font-[Poppins]">
         <span className="text-4xl font-bold p-10 text-center">Projects</span>
       </div>
       {/* Connect */}
-      <div className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#62cff4] to-[#2c67f2]">
+      <div id="contact" className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#62cff4] to-[#2c67f2]">
         <div className="text-4xl grid justify-center gap-5">
           <span className="text-4xl font-bold p-10 text-center text-white">
             Connect
@@ -211,45 +214,69 @@ const LandingPage = () => {
           <div className="w-[1200px] bg-gradient-to-r from-[#ffffff] to-[#ffffff] h-[600px] rounded-lg backdrop-blur-2xl">
             <div className="grid grid-cols-2">
               <div className="h-[600px] grid justify-center items-center">
+                
                 <img
                   src="/profile.jpg"
                   height={300}
                   width={300}
-                  className="border-black border-2 rounded-full"
+                  className="border-black mt-14 mx-auto border-2 rounded-full"
                 />
+                <span className="mb-14 font-bold">Atharva Gourshete</span>
               </div>
-              <div className="h-[600px] grid justify-center items-center">
+              <div className="h-[600px] flex justify-center items-center">
                 <form
                   ref={form}
                   onSubmit={sendEmail}
-                  className="flex flex-col gap-4 w-96"
+                  className="flex flex-col gap-6 h-[500px] text-black w-[500px] bg-white/10 backdrop-blur-lg p-8 rounded-lg shadow-lg border border-white/20 text-sm"
                 >
-                  <input
-                    type="text"
-                    name="user_name"
-                    placeholder="Your Name"
-                    className="border p-2 rounded"
-                    required
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    className="border p-2 rounded"
-                    required
-                  />
-                  <textarea
-                    name="message"
-                    placeholder="Your Message"
-                    className="border p-2 rounded"
-                    required
-                  ></textarea>
+                  <h2 className="text-2xl font-bold text-black text-center">
+                   Hey, Lets Connect !!
+                  </h2>
+
+                  <div className="flex flex-col">
+                    <label className="text-black font-medium mb-1">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      name="user_name"
+                      placeholder="Enter your name"
+                      className="border border-gray-300 p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      required
+                    />
+                  </div>
+
+                  <div className="flex flex-col">
+                    <label className="text-black font-medium mb-1">
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Enter your email"
+                      className="border border-gray-300 p-3 rounded-lg bg-white/20 text-black placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      required
+                    />
+                  </div>
+
+                  <div className="flex flex-col">
+                    <label className="text-black font-medium mb-1">
+                      Your Message
+                    </label>
+                    <textarea
+                      name="message"
+                      placeholder="Write your message here..."
+                      rows="4"
+                      className="border border-gray-300 p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+                      required
+                    ></textarea>
+                  </div>
+
                   <button
                     type="submit"
-                    value="Send"
-                    className="bg-blue-500 text-white p-2 rounded"
+                    className="bg-blue-500 text-white py-3 rounded-lg font-semibold transition-transform transform hover:scale-105 hover:bg-blue-600"
                   >
-                    Send Message
+                    Connect
                   </button>
                 </form>
               </div>
