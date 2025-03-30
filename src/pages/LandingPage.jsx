@@ -7,10 +7,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { toast } from "sonner"
 
 const LandingPage = () => {
   const form = useRef();
-
+  const handleToast =() => {
+    toast("You are now connected with Atharva Gourshete.")
+  }
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -22,6 +25,8 @@ const LandingPage = () => {
       )
       .then(
         () => console.log("SUCCESS!"),
+        e.target.reset()
+        ,
         (error) => console.log("FAILED...", error.text)
       );
   };
@@ -187,6 +192,7 @@ const LandingPage = () => {
               </div>
               <button
                 type="submit"
+                onClick={handleToast}
                 className="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-transform transform hover:scale-105"
               >
                 Connect
