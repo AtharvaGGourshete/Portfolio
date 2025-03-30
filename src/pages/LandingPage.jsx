@@ -246,7 +246,7 @@ const LandingPage = () => {
                   ></textarea>
                   <button
                     type="submit"
-                    value={send}
+                    value="Send"
                     className="bg-blue-500 text-white p-2 rounded"
                   >
                     Send Message
