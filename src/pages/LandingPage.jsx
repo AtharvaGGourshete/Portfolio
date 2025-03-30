@@ -35,6 +35,10 @@ const LandingPage = () => {
         }
       );
   };
+
+  const handleScroll = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       {" "}
@@ -47,7 +51,7 @@ const LandingPage = () => {
             Full stack Web Developer
           </span>
           <div className="flex justify-center">
-            <Button className="w-32 p-5 cursor-pointer" variant="secondary">
+            <Button onClick={() => handleScroll('projects')} className="w-32 p-5 cursor-pointer" variant="secondary">
               View Projects
             </Button>
           </div>
