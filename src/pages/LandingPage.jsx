@@ -227,7 +227,7 @@ const LandingPage = () => {
                 <form
                   ref={form}
                   onSubmit={sendEmail}
-                  className="flex flex-col gap-6 h-[500px] text-black w-[500px] bg-white/10 backdrop-blur-lg p-8 rounded-lg shadow-lg border border-white/20 text-sm"
+                  className="flex flex-col gap-6 h-[500px] text-black w-[500px] bg-white/10 backdrop-blur-lg p-8 rounded-lg shadow-lg border border-white/20 text-sm mb-10"
                 >
                   <h2 className="text-2xl font-bold text-black text-center">
                    Hey, Lets Connect !!
