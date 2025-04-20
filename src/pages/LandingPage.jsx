@@ -45,7 +45,7 @@ const LandingPage = () => {
           </p>
           <Button
             onClick={() => handleScroll("projects")}
-            className="w-32 p-5"
+            className="w-32 mt-4 bg-black hover:bg-white text-white hover:text-black cursor pointer font-semibold cursor-pointer"
             variant="secondary"
           >
             View Projects
@@ -76,13 +76,13 @@ const LandingPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 mt-5">
               <Button
                 onClick={() => handleScroll("projects")}
-                className="bg-white text-black"
+                className="w-32 mt-4 bg-black hover:bg-white text-white hover:text-black cursor pointer font-semibold cursor-pointer"
               >
                 View Projects
               </Button>
               <Button
                 onClick={() => handleScroll("contact")}
-                className="bg-white text-black"
+                className="w-32 mt-4 bg-black hover:bg-white text-white hover:text-black cursor pointer font-semibold cursor-pointer"
               >
                 Connect
               </Button>

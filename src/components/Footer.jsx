@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="text-white text-2xl md:text-3xl font-bold">
           <span className="text-gray-400 text-sm">All rights reserved by</span>
           <br />
-          Atharva Gourshete
+          &copy;Atharva Gourshete
         </div>
 
         {/* Navigation Links */}
