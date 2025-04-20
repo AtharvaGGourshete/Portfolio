@@ -37,9 +37,10 @@ const LandingPage = () => {
         className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#62cff4] to-[#2c67f2] px-4"
       >
         <div className="text-center pt-20 md:pt-52 space-y-6 items-center">
-          <h1 className="text-4xl md:text-8xl font-extrabold text-white items-center mt-20 ">
+          <h1 className="text-4xl md:text-8xl font-extrabold text-white items-center mt-16 ">
             Welcome to my Portfolio
           </h1>
+          <h1 className="text-3xl font-bold text-white">Atharva Ganesh Gourshete</h1>
           <p className="text-lg md:text-xl text-white">
             Full Stack Web Developer
           </p>
