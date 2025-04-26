@@ -207,6 +207,13 @@ const LandingPage = () => {
         image: "/password-manager.png",
         link: "https://pass-vault-psi.vercel.app/",
       },
+      {
+        title: "Urban Nest",
+        description:
+          "Discover luxury and everyday essentials with our curated marketplace offering premium beauty, fragrances, elegant furniture, and gourmet grocery selections.",
+        image: "/urbannest.png",
+        link: "https://urban-nest-6esd.vercel.app/",
+      },
           ].map((project, index) => (
       <Card
         key={index}
