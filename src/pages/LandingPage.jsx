@@ -200,6 +200,13 @@ const LandingPage = () => {
         image: "/weather-app.png",
         link: "https://weather-app-black-omega-48.vercel.app/",
       },
+      {
+        title: "Password Manager",
+        description:
+          "Securely store and manage website logins with my password manager: easy, encrypted, and accessible anytime, anywhere you need.",
+        image: "/password-manager.png",
+        link: "https://pass-vault-psi.vercel.app/",
+      },
           ].map((project, index) => (
       <Card
         key={index}
