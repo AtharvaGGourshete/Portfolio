@@ -40,7 +40,9 @@ const LandingPage = () => {
           <h1 className="text-4xl md:text-8xl font-extrabold text-white items-center mt-16 ">
             Welcome to my Portfolio
           </h1>
-          <h1 className="text-3xl font-bold text-white">Atharva Ganesh Gourshete</h1>
+          <h1 className="text-3xl font-bold text-white">
+            Atharva Ganesh Gourshete
+          </h1>
           <p className="text-lg md:text-xl text-white">
             Full Stack Web Developer
           </p>
@@ -185,66 +187,69 @@ const LandingPage = () => {
       </div>
 
       <div
-  id="projects"
-  className="bg-[#003459] text-white font-[Poppins] py-16 px-4"
->
-  <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-    Projects
-  </h2>
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    {[
-      {
-        title: "Weather App",
-        description:
-          "A global weather app showing real-time temperature, humidity, wind, and forecasts for any city with a clean, user-friendly interface.",
-        image: "/weather-app.png",
-        link: "https://weather-app-black-omega-48.vercel.app/",
-      },
-      {
-        title: "Password Manager",
-        description:
-          "Securely store and manage website logins with my password manager: easy, encrypted, and accessible anytime, anywhere you need.",
-        image: "/password-manager.png",
-        link: "https://pass-vault-psi.vercel.app/",
-      },
-      {
-        title: "Urban Nest",
-        description:
-          "Discover luxury and everyday essentials with our curated marketplace offering premium beauty, fragrances, elegant furniture, and gourmet grocery selections.",
-        image: "/urbannest.png",
-        link: "https://urban-nest-6esd.vercel.app/",
-      },
-          ].map((project, index) => (
-      <Card
-        key={index}
-        className="bg-[#007EA7] border-0 text-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl"
+        id="projects"
+        className="bg-[#003459] text-white font-[Poppins] py-16 px-4"
       >
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center text-blue-200">
-            {project.title}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="flex flex-col flex-grow">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="h-48 w-full object-cover rounded-lg mb-4"
-          />
-          <p className="text-base text-center flex-grow">
-            {project.description}
-          </p>
-          <Link to={project.link} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-            <Button
-              className="w-full mt-4 bg-black hover:bg-white text-white hover:text-black cursor pointer font-semibold"
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          Projects
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              title: "Weather App",
+              description:
+                "A global weather app showing real-time temperature, humidity, wind, and forecasts for any city with a clean, user-friendly interface.",
+              image: "/weather-app.png",
+              link: "https://weather-app-black-omega-48.vercel.app/",
+            },
+            {
+              title: "Password Manager",
+              description:
+                "Securely store and manage website logins with my password manager: easy, encrypted, and accessible anytime, anywhere you need.",
+              image: "/password-manager.png",
+              link: "https://pass-vault-psi.vercel.app/",
+            },
+            {
+              title: "Urban Nest",
+              description:
+                "Discover luxury and everyday essentials with our curated marketplace offering premium beauty, fragrances, elegant furniture, and gourmet grocery selections.",
+              image: "/urbannest.png",
+              link: "https://urban-nest-6esd.vercel.app/",
+            },
+          ].map((project, index) => (
+            <Card
+              key={index}
+              className="bg-[#007EA7] border-0 text-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl"
             >
-              View Project
-            </Button>
-          </Link>
-        </CardContent>
-      </Card>
-    ))}
-  </div>
-</div>
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-center text-blue-200">
+                  {project.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col flex-grow">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-48 w-full object-cover rounded-lg mb-4"
+                />
+                <p className="text-base text-center flex-grow">
+                  {project.description}
+                </p>
+                <Link
+                  to={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer"
+                >
+                  <Button className="w-full mt-4 bg-black hover:bg-white text-white hover:text-black cursor pointer font-semibold">
+                    View Project
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
 
       <div
         id="contact"
