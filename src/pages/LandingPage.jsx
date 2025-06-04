@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const LandingPage = () => {
   const form = useRef();
@@ -30,41 +31,96 @@ const LandingPage = () => {
     document.getElementById(id).scrollIntoView({ behavior: "smooth" });
   };
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardAnimation = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  };
+
+  const inputHover = {
+    hover: { scale: 1.02, transition: { duration: 0.2 } },
+  };
+
   return (
     <>
       <div
         id="home"
-        className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#62cff4] to-[#2c67f2] px-4"
+        className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] px-4 relative overflow-hidden"
       >
-        <div className="text-center pt-20 md:pt-52 space-y-6 items-center">
-          <h1 className="text-4xl md:text-8xl font-extrabold text-white items-center mt-16 ">
-            Welcome to my Portfolio
-          </h1>
-          <h1 className="text-3xl font-bold text-white">
-            Atharva Ganesh Gourshete
-          </h1>
-          <p className="text-lg md:text-xl text-white">
-            Full Stack Web Developer
-          </p>
-          <Button
-            onClick={() => handleScroll("projects")}
-            className="w-32 mt-4 bg-black hover:bg-white text-white hover:text-black cursor pointer font-semibold cursor-pointer"
-            variant="secondary"
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ0OCAzNi0xOHoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-10 pointer-events-none"></div>
+        <motion.div
+          className="text-center pt-20 md:pt-52 space-y-6 items-center relative z-10"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          <motion.h1
+            className="text-4xl md:text-8xl font-extrabold text-white items-center mt-16"
+            variants={fadeInUp}
           >
-            View Projects
-          </Button>
-        </div>
+            Welcome to my Portfolio
+          </motion.h1>
+          <motion.h1
+            className="text-3xl font-bold text-white"
+            variants={fadeInUp}
+          >
+            Atharva Ganesh Gourshete
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl text-gray-200"
+            variants={fadeInUp}
+          >
+            Full Stack Web Developer
+          </motion.p>
+          <motion.div variants={fadeInUp}>
+            <Button
+              onClick={() => handleScroll("projects")}
+              className="w-32 mt-4 bg-gray-900 hover:bg-gray-700 text-white hover:text-gray-200 font-semibold cursor-pointer"
+              variant="secondary"
+            >
+              View Projects
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div
         id="about"
-        className="bg-[#003459] text-white font-[Poppins] py-10 px-4"
+        className="bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] text-white font-[Poppins] py-10 px-4 relative overflow-hidden"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ0OCAzNi0xOHoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-10 pointer-events-none"></div>
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-10 relative z-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           About Me
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="space-y-6">
+        </motion.h2>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto relative z-10"
+          initial="hidden"
+          whileInView="visible"
+          variants={staggerContainer}
+          viewport={{ once: true }}
+        >
+          <motion.div className="space-y-6" variants={fadeInUp}>
             <h3 className="text-2xl md:text-3xl font-bold">
               Full Stack Web Developer
             </h3>
@@ -79,19 +135,19 @@ const LandingPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 mt-5">
               <Button
                 onClick={() => handleScroll("projects")}
-                className="w-32 mt-4 bg-black hover:bg-white text-white hover:text-black cursor pointer font-semibold cursor-pointer"
+                className="w-32 mt-4 bg-gray-900 hover:bg-gray-700 text-white hover:text-gray-200 font-semibold cursor-pointer"
               >
                 View Projects
               </Button>
               <Button
                 onClick={() => handleScroll("contact")}
-                className="w-32 mt-4 bg-black hover:bg-white text-white hover:text-black cursor pointer font-semibold cursor-pointer"
+                className="w-32 mt-4 bg-gray-900 hover:bg-gray-700 text-white hover:text-gray-200 font-semibold cursor-pointer"
               >
                 Connect
               </Button>
             </div>
-          </div>
-          <div className="space-y-6">
+          </motion.div>
+          <motion.div className="space-y-6" variants={fadeInUp}>
             <h3 className="text-2xl md:text-3xl font-bold">Education</h3>
             <ul className="text-base md:text-lg space-y-2">
               <li>
@@ -107,18 +163,31 @@ const LandingPage = () => {
                 Institute Of Technology
               </li>
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div
         id="skills"
-        className="bg-[#007EA7] text-white font-[Poppins] py-10 px-4"
+        className="bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] text-white font-[Poppins] py-10 px-4 relative overflow-hidden"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ0OCAzNi0xOHoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-10 pointer-events-none"></div>
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-10 relative z-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           Skills
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        </motion.h2>
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto relative z-10"
+          initial="hidden"
+          whileInView="visible"
+          variants={staggerContainer}
+          viewport={{ once: true }}
+        >
           {[
             {
               title: "Frontend",
@@ -165,35 +234,47 @@ const LandingPage = () => {
               ],
             },
           ].map((category, index) => (
-            <Card
-              key={index}
-              className="h-96 transition-transform transform hover:scale-105 hover:shadow-xl bg-[#003459] border-0 text-white"
-            >
-              <CardHeader>
-                <CardTitle className="text-blue-400 text-xl md:text-2xl">
-                  {category.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="text-base md:text-xl space-y-2">
-                  {category.skills.map((skill, i) => (
-                    <li key={i}>{skill}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <motion.div key={index} variants={cardAnimation}>
+              <Card className="h-96 transition-transform transform hover:scale-105 hover:shadow-xl bg-[#2a1a5e] border-0 text-white">
+                <CardHeader>
+                  <CardTitle className="text-violet-300 text-xl md:text-2xl">
+                    {category.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="text-base md:text-xl space-y-2">
+                    {category.skills.map((skill, i) => (
+                      <li key={i}>{skill}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <div
         id="projects"
-        className="bg-[#003459] text-white font-[Poppins] py-16 px-4"
+        className="bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] text-white font-[Poppins] py-16 px-4 relative overflow-hidden"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ48IDM2LTE4eiIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvZz48L3N2Zz4=')] opacity-10 pointer-events-none"></div>
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12 relative z-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           Projects
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        </motion.h2>
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-10"
+          initial="hidden"
+          whileInView="visible"
+          variants={staggerContainer}
+          viewport={{ once: true }}
+        >
           {[
             {
               title: "Weather App",
@@ -217,115 +298,136 @@ const LandingPage = () => {
               link: "https://urban-nest-6esd.vercel.app/",
             },
           ].map((project, index) => (
-            <Card
-              key={index}
-              className="bg-[#007EA7] border-0 text-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl"
-            >
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold text-center text-blue-200">
-                  {project.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col flex-grow">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-48 w-full object-cover rounded-lg mb-4"
-                />
-                <p className="text-base text-center flex-grow">
-                  {project.description}
-                </p>
-                <Link
-                  to={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer"
-                >
-                  <Button className="w-full mt-4 bg-black hover:bg-white text-white hover:text-black cursor pointer font-semibold">
-                    View Project
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+            <motion.div key={index} variants={cardAnimation}>
+              <Card className="bg-[#2a1a5e] border-0 text-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-bold text-center text-violet-200">
+                    {project.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col flex-grow">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-48 w-full object-cover rounded-lg mb-4"
+                  />
+                  <p className="text-base text-center flex-grow">
+                    {project.description}
+                  </p>
+                  <Link
+                    to={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer"
+                  >
+                    <Button className="w-full mt-4 bg-gray-900 hover:bg-gray-700 text-white hover:text-gray-200 font-semibold">
+                      View Project
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <div
         id="contact"
-        className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#62cff4] to-[#2c67f2] py-10 px-4"
+        className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] py-10 px-4 relative overflow-hidden"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-10">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ0OCAzNi0xOHoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-10 pointer-events-none"></div>
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center text-white mb-10 relative z-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           Connect
-        </h2>
-        <div className="max-w-5xl mx-auto bg-blue-300/20 rounded-lg p-6">
+        </motion.h2>
+        <motion.div
+          className="max-w-5xl mx-auto bg-violet-900/20 rounded-lg p-6 relative z-10"
+          initial="hidden"
+          whileInView="visible"
+          variants={staggerContainer}
+          viewport={{ once: true }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex flex-col items-center justify-center space-y-6">
+            <motion.div
+              className="flex flex-col items-center justify-center space-y-6"
+              variants={fadeInUp}
+            >
               <img
                 src="/profile.jpg"
                 height={200}
                 width={200}
-                className="border-2 border-black rounded-full"
+                className="border-2 border-gray-700 rounded-full"
                 alt="Profile"
               />
               <span className="font-bold text-white">Atharva Gourshete</span>
-            </div>
-            <form
+            </motion.div>
+            <motion.form
               ref={form}
               onSubmit={sendEmail}
-              className="space-y-6 bg-white/10 backdrop-blur-lg p-6 rounded-lg shadow-lg border border-white/20"
+              className="space-y-6 bg-violet-900/30 backdrop-blur-lg p-6 rounded-lg shadow-lg border border-white/20"
+              variants={fadeInUp}
             >
-              <h3 className="text-xl md:text-2xl font-bold text-black text-center">
+              <h3 className="text-xl md:text-2xl font-bold text-white text-center">
                 Hey, Let's Connect!!
               </h3>
               <div className="space-y-4">
-                <div className="flex flex-col">
-                  <label className="text-black font-medium mb-1">
+                <motion.div className="flex flex-col" whileHover="hover">
+                  <label className="text-white font-medium mb-1">
                     Your Name
                   </label>
-                  <input
+                  <motion.input
                     type="text"
                     name="user_name"
                     placeholder="Enter your name"
-                    className="border border-gray-300 p-3 rounded-lg bg-white/20 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="border border-gray-600 p-3 rounded-lg bg-gray-800/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-400"
                     required
+                    variants={inputHover}
                   />
-                </div>
-                <div className="flex flex-col">
-                  <label className="text-black font-medium mb-1">
+                </motion.div>
+                <motion.div className="flex flex-col" whileHover="hover">
+                  <label className="text-white font-medium mb-1">
                     Your Email
                   </label>
-                  <input
+                  <motion.input
                     type="email"
                     name="email"
                     placeholder="Enter your email"
-                    className="border border-gray-300 p-3 rounded-lg bg-white/20 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="border border-gray-600 p-3 rounded-lg bg-gray-800/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-400"
                     required
+                    variants={inputHover}
                   />
-                </div>
-                <div className="flex flex-col">
-                  <label className="text-black font-medium mb-1">
+                </motion.div>
+                <motion.div className="flex flex-col" whileHover="hover">
+                  <label className="text-white font-medium mb-1">
                     Your Message
                   </label>
-                  <textarea
+                  <motion.textarea
                     name="message"
                     placeholder="Write your message here..."
                     rows="4"
-                    className="border border-gray-300 p-3 rounded-lg bg-white/20 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+                    className="border border-gray-600 p-3 rounded-lg bg-gray-800/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-400 resize-none"
                     required
+                    variants={inputHover}
                   />
-                </div>
+                </motion.div>
               </div>
-              <button
+              <motion.button
                 type="submit"
                 onClick={handleToast}
-                className="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-transform transform hover:scale-105"
+                className="w-full bg-violet-600 text-white py-3 rounded-lg font-semibold hover:bg-violet-700 transition-transform transform hover:scale-105"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Connect
-              </button>
-            </form>
+              </motion.button>
+            </motion.form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );
