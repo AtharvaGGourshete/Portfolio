@@ -40,7 +40,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="p-5 h-16 bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] text-white font-[Poppins] text-xl fixed top-0 w-full z-50"
+      className="p-4 h-16 bg-blue-950 text-white font-[Poppins] text-xl fixed top-0 w-full z-50 items-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -94,7 +94,7 @@ const Navbar = () => {
           </svg>
         </motion.button>
 
-        <Button className="ml-64"><ArrowDownToLine />Download Resume</Button>
+      <Button className="ml-64 transition-transform transform hover:scale-102 cursor-pointer"><ArrowDownToLine />Download Resume</Button>
       </div>
 
       {/* Mobile Menu */}

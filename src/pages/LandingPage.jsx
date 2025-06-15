@@ -60,7 +60,7 @@ const LandingPage = () => {
     <>
       <div
         id="home"
-        className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] px-4 relative overflow-hidden"
+        className="min-h-screen font-[Poppins] bg-blue-950 px-4 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ0OCAzNi0xOHoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-10 pointer-events-none"></div>
         <motion.div
@@ -70,7 +70,7 @@ const LandingPage = () => {
           variants={staggerContainer}
         >
           <motion.h1
-            className="text-4xl md:text-8xl font-extrabold text-white items-center mt-16"
+            className="text-4xl md:text-7xl font-extrabold text-white items-center mt-16"
             variants={fadeInUp}
           >
             Welcome to my Portfolio
@@ -101,11 +101,11 @@ const LandingPage = () => {
 
       <div
         id="about"
-        className="bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] text-white font-[Poppins] py-10 px-4 relative overflow-hidden"
+        className="bg-white text-black font-[Poppins] py-10 px-4 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ0OCAzNi0xOHoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-10 pointer-events-none"></div>
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-10 relative z-10"
+          className="text-3xl md:text-4xl font-bold text-center mb-10 relative z-10 text-blue-950"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -169,11 +169,11 @@ const LandingPage = () => {
 
       <div
         id="skills"
-        className="bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] text-white font-[Poppins] py-10 px-4 relative overflow-hidden"
+        className="bg-white text-black font-[Poppins] py-10 px-4 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ0OCAzNi0xOHoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-10 pointer-events-none"></div>
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-10 relative z-10"
+          className="text-3xl md:text-4xl font-bold text-center mb-10 relative z-10 text-blue-950"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -235,9 +235,9 @@ const LandingPage = () => {
             },
           ].map((category, index) => (
             <motion.div key={index} variants={cardAnimation}>
-              <Card className="h-96 transition-transform transform hover:scale-105 hover:shadow-xl bg-[#2a1a5e] border-0 text-white">
+              <Card className="h-96 transition-transform transform hover:scale-105 hover:shadow-xl bg-blue-950 border-0 text-white">
                 <CardHeader>
-                  <CardTitle className="text-violet-300 text-xl md:text-2xl">
+                  <CardTitle className="text-blue-400 text-xl md:text-2xl">
                     {category.title}
                   </CardTitle>
                 </CardHeader>
@@ -256,11 +256,11 @@ const LandingPage = () => {
 
       <div
         id="projects"
-        className="bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] text-white font-[Poppins] py-16 px-4 relative overflow-hidden"
+        className="bg-white text-black font-[Poppins] py-16 px-4 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ48IDM2LTE4eiIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvZz48L3N2Zz4=')] opacity-10 pointer-events-none"></div>
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12 relative z-10"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 relative z-10 text-blue-950"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -299,9 +299,9 @@ const LandingPage = () => {
             },
           ].map((project, index) => (
             <motion.div key={index} variants={cardAnimation}>
-              <Card className="bg-[#2a1a5e] border-0 text-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl">
+              <Card className="bg-blue-950 border-0 text-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-center text-violet-200">
+                  <CardTitle className="text-2xl font-bold text-center text-blue-400">
                     {project.title}
                   </CardTitle>
                 </CardHeader>
@@ -333,7 +333,7 @@ const LandingPage = () => {
 
       <div
         id="contact"
-        className="min-h-screen font-[Poppins] bg-gradient-to-r from-[#0f0a20] via-[#4b0082] to-[#13224b] py-10 px-4 relative overflow-hidden"
+        className="min-h-screen font-[Poppins] bg-white text-black py-10 px-4 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ0OCAzNi0xOHoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-10 pointer-events-none"></div>
         <motion.h2
@@ -346,7 +346,7 @@ const LandingPage = () => {
           Connect
         </motion.h2>
         <motion.div
-          className="max-w-5xl mx-auto bg-violet-900/20 rounded-lg p-6 relative z-10"
+          className="max-w-5xl mx-auto bg-blue-950 rounded-lg p-6 relative z-10"
           initial="hidden"
           whileInView="visible"
           variants={staggerContainer}
@@ -369,7 +369,7 @@ const LandingPage = () => {
             <motion.form
               ref={form}
               onSubmit={sendEmail}
-              className="space-y-6 bg-violet-900/30 backdrop-blur-lg p-6 rounded-lg shadow-lg border border-white/20"
+              className="space-y-6 bg-blue-950 backdrop-blur-lg p-6 rounded-lg"
               variants={fadeInUp}
             >
               <h3 className="text-xl md:text-2xl font-bold text-white text-center">
@@ -419,7 +419,7 @@ const LandingPage = () => {
               <motion.button
                 type="submit"
                 onClick={handleToast}
-                className="w-full bg-violet-600 text-white py-3 rounded-lg font-semibold hover:bg-violet-700 transition-transform transform hover:scale-105"
+                className="w-full bg-blue-900 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-transform transform hover:scale-102 cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
