@@ -297,6 +297,13 @@ const LandingPage = () => {
               image: "/urbannest.png",
               link: "https://urban-nest-6esd.vercel.app/",
             },
+            {
+              title: "Rydo - AI car marketplace",
+              description:
+                "An AI-powered car marketplace to list vehicles, book test drives, and manage everything seamlessly with a full-featured admin dashboard, advanced analytics, and a smart, user-friendly experience for buyers and sellers.",
+              image: "/rydo.png",
+              link: "https://rydo-sooty.vercel.app/",
+            },
           ].map((project, index) => (
             <motion.div key={index} variants={cardAnimation}>
               <Card className="bg-blue-950 border-0 text-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-2xl">
@@ -320,7 +327,7 @@ const LandingPage = () => {
                     rel="noopener noreferrer"
                     className="cursor-pointer"
                   >
-                    <Button className="w-full mt-4 bg-gray-900 hover:bg-gray-700 text-white hover:text-gray-200 font-semibold">
+                    <Button className="w-full mt-4 bg-gray-900 hover:bg-gray-700 text-white hover:text-gray-200 font-semibold cursor-pointer">
                       View Project
                     </Button>
                   </Link>
@@ -329,6 +336,10 @@ const LandingPage = () => {
             </motion.div>
           ))}
         </motion.div>
+      </div>
+
+      <div id="certifications">
+
       </div>
 
       <div
