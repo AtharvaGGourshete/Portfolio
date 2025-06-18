@@ -5,6 +5,17 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+
+const certifications = [
+  {
+    title: "Full Stack Web Developer",
+    issuer: "Udemy",
+    year: "2025",
+    description:
+      "Demonstrated expertise in designing and deploying full stack websites",
+  },
+];
 
 const LandingPage = () => {
   const form = useRef();
@@ -169,7 +180,7 @@ const LandingPage = () => {
 
       <div
         id="skills"
-        className="bg-white text-black font-[Poppins] py-10 px-4 relative overflow-hidden"
+        className="bg-gray-100 text-black font-[Poppins] py-10 px-4 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwIDEyLjE1Ni0yMS4zNTIgMTcuODU0LTM2IDM2QzE0LjY0OCAxOS4xNDYgMzYgMTMuNDQ4IDM2IDE4bTI0IDBjMCAxMi4xNTYtMjEuMzUyIDE3Ljg1NC0zNiAzNiAxNC42NDgtMTguODU0IDM2LTEzLjQ0OCAzNi0xOHoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L2c+PC9zdmc+')] opacity-10 pointer-events-none"></div>
         <motion.h2
@@ -338,8 +349,44 @@ const LandingPage = () => {
         </motion.div>
       </div>
 
-      <div id="certifications">
-
+      <div className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-7xl mx-auto"
+        >
+          <h2 className="text-3xl font-bold text-blue-950 mb-8 text-center">
+            My Certifications
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+              >
+                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 bg-blue-950 text-white">
+                  <CardHeader className="text-white">
+                    <CardTitle className="text-xl font-semibold text-white">
+                      {cert.title}
+                    </CardTitle>
+                    <Badge variant="secondary" className="mt-2">
+                      {cert.issuer}
+                    </Badge>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <img src="./full-stack.jpg" className="rounded-sm"/>
+                    <p className="text-white mb-2">{cert.description}</p>
+                    <p className="text-sm text-white">Earned: {cert.year}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
 
       <div
