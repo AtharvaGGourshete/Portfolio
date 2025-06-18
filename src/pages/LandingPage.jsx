@@ -349,7 +349,7 @@ const LandingPage = () => {
         </motion.div>
       </div>
 
-      <div className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-100">
+      <div id="certifications" className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-100">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

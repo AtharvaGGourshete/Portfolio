@@ -45,7 +45,7 @@ const Navbar = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="grid grid-cols-3 items-center mx-5 md:mx-14">
+      <div className="grid grid-cols-3 items-center md:mx-5">
         {/* Logo */}
         <motion.div
           className="font-bold text-2xl"
@@ -69,7 +69,7 @@ const Navbar = () => {
             },
           }}
         >
-          {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
+          {['home', 'about', 'skills', 'projects', 'certifications' , 'contact'].map((section) => (
             <motion.ul
               key={section}
               className="cursor-pointer hover:underline"
