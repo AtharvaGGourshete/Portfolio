@@ -1,128 +1,110 @@
-import React, { useState } from 'react';
-import { Button } from './ui/button';
-import { motion } from 'framer-motion';
-import { ArrowDownToLine } from 'lucide-react';
+import React, { useState } from "react";
+import { Button } from "./ui/button";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowDownToLine, Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleScroll = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-    setMenuOpen(false); // Close menu on click
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+    }
   };
 
-  // Animation variants
-  const logoVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
-  const navLinkVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-    hover: { scale: 1.1, color: '#d8b4fe', transition: { duration: 0.2 } },
-  };
-
-  const hamburgerVariants = {
-    closed: { rotate: 0, scale: 1 },
-    open: { rotate: 90, scale: 1.1, transition: { duration: 0.3 } },
-  };
-
-  const mobileMenuVariants = {
-    hidden: { opacity: 0, y: '-100%' },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeInOut' } },
-  };
-
-  const mobileLinkVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
-  };
+  const sections = ["home", "about", "skills", "projects", "certifications"];
 
   return (
     <motion.nav
-      className="p-4 h-16 bg-blue-950 text-white font-[Poppins] text-xl fixed top-0 w-full z-50 items-center"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      className="fixed top-4 left-1/2 w-[95%] max-w-7xl z-50 bg-black/80 backdrop-blur-md  px-6 py-3 rounded-full text-white text-sm"
+      initial={{ y: -100, x: "-50%", opacity: 0 }}
+      animate={{ y: 0, x: "-50%", opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="grid grid-cols-3 items-center md:mx-5">
-        {/* Logo */}
-        <motion.div
-          className="font-bold text-2xl"
-          variants={logoVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          Portfolio
-        </motion.div>
+      <div className="flex items-center justify-between">
+        {/* Logo & Branding */}
+        <div className="flex items-center gap-6">
+          <motion.div
+            className="text-xl font-bold tracking-tighter cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            onClick={() => handleScroll("home")}
+          >
+            Atharva<span className="text-green-400 text-extrabold">.</span>
+          </motion.div>
 
-        {/* Desktop Navigation */}
-        <motion.div
-          className="hidden md:flex gap-5"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.1 },
-            },
-          }}
-        >
-          {['home', 'about', 'skills', 'projects', 'certifications' , 'contact'].map((section) => (
-            <motion.ul
-              key={section}
-              className="cursor-pointer hover:underline"
-              onClick={() => handleScroll(section)}
-              variants={navLinkVariants}
-              whileHover="hover"
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1).replace('contact', 'Contact Me')}
-            </motion.ul>
-          ))}
-        </motion.div>
+          {/* Desktop Menu - Sliding Text Animation */}
+          <div className="hidden md:flex items-center gap-6 ml-4">
+            {sections.map((section) => (
+              <button
+                key={section}
+                onClick={() => handleScroll(section)}
+                className="relative overflow-hidden h-6 group text-gray-300 hover:text-white transition-colors"
+              >
+                <span className="cursor-pointer">
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
 
-        {/* Hamburger Button */}
-        <motion.button
-          className="md:hidden flex items-center text-white focus:outline-none"
+        {/* Action Buttons */}
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={() => handleScroll("contact")}
+            className="border border-slate-600 hover:bg-emerald-500 px-5 py-2 rounded-full text-sm font-medium transition duration-300 cursor-pointer"
+          >
+            Contact
+          </button>
+          <button
+            className="bg-white text-black px-5 py-2 rounded-full text-sm font-medium transition duration-300 
+            shadow-[0px_0px_20px_2px_rgba(255,255,255,0.3)] cursor-pointer flex items-center gap-2 hover:bg-slate-100"
+          >
+            <ArrowDownToLine size={16} />
+            Resume
+          </button>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden p-2 text-gray-300"
           onClick={() => setMenuOpen(!menuOpen)}
-          variants={hamburgerVariants}
-          animate={menuOpen ? 'open' : 'closed'}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-        </motion.button>
-
-      <Button className="ml-64 transition-transform transform hover:scale-102 cursor-pointer"><ArrowDownToLine />Download Resume</Button>
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
-      <motion.div
-        className={`md:hidden absolute top-16 left-0 w-full bg-[#00171F] transition-transform duration-300 ease-in-out`}
-        initial="hidden"
-        animate={menuOpen ? 'visible' : 'hidden'}
-        variants={mobileMenuVariants}
-      >
-        <motion.ul
-          className="flex flex-col items-center gap-5 py-5"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-          }}
-        >
-          {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
-            <motion.li
-              key={section}
-              className="cursor-pointer hover:underline"
-              onClick={() => handleScroll(section)}
-              variants={mobileLinkVariants}
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1).replace('contact', 'Contact Me')}
-            </motion.li>
-          ))}
-        </motion.ul>
-      </motion.div>
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden overflow-hidden flex flex-col items-center gap-4 pt-4 pb-2"
+          >
+            {sections.map((section) => (
+              <button
+                key={section}
+                onClick={() => handleScroll(section)}
+                className="text-gray-400 hover:text-white text-lg"
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            ))}
+            <div className="flex flex-col w-full gap-3 pt-2">
+              <button className="w-full border border-slate-600 py-3 rounded-full">
+                Contact
+              </button>
+              <button className="w-full bg-white text-black py-3 rounded-full font-bold">
+                Resume
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
