@@ -58,14 +58,14 @@ const Navbar = () => {
           >
             Contact
           </button>
-          <iframe
-            src="/Atharva_Resume.pdf"
+          <a
+            href="/public/Atharva_Resume.pdf"
             className="bg-white text-black px-5 py-2 rounded-full text-sm font-medium transition duration-300 
             shadow-[0px_0px_20px_2px_rgba(255,255,255,0.3)] cursor-pointer flex items-center gap-2 hover:bg-slate-100"
           >
             <ArrowDownToLine size={16} />
             Resume
-          </iframe>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -99,12 +99,12 @@ const Navbar = () => {
               <button className="w-full border border-slate-600 py-3 rounded-full">
                 Contact
               </button>
-              <iframe
-                src="/Atharva_Resume(updated).pdf"
+              <a
+                href="/public/Atharva_Resume(updated).pdf"
                 className="w-full text-center bg-white text-black py-3 rounded-full font-bold"
               >
                 Resume
-              </iframe>
+              </a>
             </div>
           </motion.div>
         )}
