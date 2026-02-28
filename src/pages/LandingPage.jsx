@@ -51,7 +51,7 @@ const certifications = [
   },
 ];
 
-const fullstackProjects = [
+const projects = [
   {
     id: 1,
     title: "Rydo - AI Car Marketplace",
@@ -59,41 +59,15 @@ const fullstackProjects = [
       "An AI-powered car marketplace with a smart admin dashboard, analytics, and seamless test drive bookings.",
     image: "/rydo.png",
     link: "https://rydo-sooty.vercel.app/",
+    github: "https://github.com/AtharvaGGourshete/ai-based-car-finder",
   },
-  {
-    id: 2,
-    title: "Chainsaw - AI Driven Supply Chain Optimization",
-    description: "",
-    image: "/supply-chain.png",
-    link: "https://github.com/AtharvaGGourshete/supply-chain-optimization",
-  },
-];
-
-const frontendProjects = [
-  {
-    id: 2,
-    title: "Weather App",
-    description:
-      "A sleek global weather app with real-time data, city search, and clean interface.",
-    image: "/weather-app.png",
-    link: "https://weather-app-black-omega-48.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "Password Manager",
-    description:
-      "A secure and responsive password manager to store and access credentials safely.",
-    image: "/password-manager.png",
-    link: "https://pass-vault-psi.vercel.app/",
-  },
-  {
-    id: 4,
-    title: "Urban Nest",
-    description:
-      "E-commerce platform offering curated premium lifestyle essentials with elegant design.",
-    image: "/urbannest.png",
-    link: "https://urban-nest-6esd.vercel.app/",
-  },
+  // {
+  //   id: 2,
+  //   title: "Chainsaw - AI Driven Supply Chain Optimization",
+  //   description: "",
+  //   image: "/supply-chain.png",
+  //   link: "https://github.com/AtharvaGGourshete/supply-chain-optimization",
+  // },
 ];
 
 const LandingPage = () => {
@@ -186,8 +160,7 @@ const LandingPage = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="mt-8 inline-block"
-            >
-            </motion.div>
+            ></motion.div>
           </motion.div>
 
           {/* Profile Image Section */}
@@ -326,111 +299,235 @@ const LandingPage = () => {
       </section>
 
       <section
-        id="projects"
-        className="bg-[#0D0D0D] text-gray-200 py-32 px-6 relative overflow-hidden border-t border-emerald-900/20"
+        id="skills"
+        className="bg-[#0A0A0A] text-gray-300 py-28 px-6 border-t border-white/5"
       >
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Bold Header Section */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
-            <div className="space-y-4">
-              <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none">
-                BUILT FROM <span className="text-emerald-400">SCRATCH.</span>
-              </h2>
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+              Technical <span className="text-emerald-400">Expertise</span>
+            </h2>
+            <p className="text-gray-500 mt-3 max-w-xl text-sm">
+              Technologies and tools I use to build scalable full-stack systems,
+              automate workflows, and work with data-driven applications.
+            </p>
+          </div>
+
+          {/* Skills Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* Frontend */}
+            <div className="bg-[#14161C] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition">
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Frontend Development
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "HTML",
+                  "CSS",
+                  "JavaScript",
+                  "React",
+                  "Next.js",
+                  "Tailwind CSS",
+                  "Framer Motion",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Bold Minimalist Switcher */}
-            <div className="inline-flex p-2 bg-white/[0.03] border-2 border-white/5 rounded-2xl">
-              {["fullstack", "frontend"].map((id) => (
-                <button
-                  key={id}
-                  onClick={() => setCategory(id)}
-                  className={`px-8 py-3 rounded-xl text-sm font-black uppercase tracking-widest transition-all duration-300 ${
-                    category === id
-                      ? "bg-emerald-500 text-black shadow-[0_0_20px_rgba(16,185,129,0.3)]"
-                      : "text-gray-500 hover:text-white"
-                  }`}
-                >
-                  {id}
-                </button>
-              ))}
+            {/* Backend */}
+            <div className="bg-[#14161C] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition">
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Backend & APIs
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Node.js",
+                  "Express",
+                  "REST APIs",
+                  "Supabase",
+                  "Prisma",
+                  "PostgreSQL",
+                  "Flask",
+                  "SQLite",
+                  "Authentication",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* DevOps */}
+            <div className="bg-[#14161C] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition">
+              <h3 className="text-lg font-semibold text-white mb-4">
+                DevOps & Deployment
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Git",
+                  "GitHub",
+                  "Vercel",
+                  "CI/CD Basics",
+                  "Docker (Learning)",
+                  "Linux Basics",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Data */}
+            <div className="bg-[#14161C] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition">
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Data & Analytics
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Python",
+                  "Pandas",
+                  "NumPy",
+                  "Scikit-learn",
+                  "Data Cleaning",
+                  "Basic ML Models",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Core Concepts */}
+            <div className="bg-[#14161C] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition">
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Core CS Concepts
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Data Structures",
+                  "Algorithms",
+                  "OOP",
+                  "DBMS",
+                  "Operating Systems",
+                  "Computer Networks",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="projects"
+        className="bg-[#0F1115] text-gray-300 py-28 px-6 border-t border-white/5"
+      >
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+                <span className="text-emerald-400">Projects</span>
+              </h2>
+              <p className="text-gray-500 mt-3 max-w-md text-sm">
+                A collection of full-stack and frontend applications built with
+                a focus on performance, scalability, and clean architecture.
+              </p>
             </div>
           </div>
 
           <AnimatePresence mode="wait">
             <motion.div
               key={category}
-              className="grid lg:grid-cols-2 gap-10"
-              initial={{ opacity: 0, y: 20 }}
+              className="grid lg:grid-cols-2 gap-8"
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
             >
-              {(category === "fullstack"
-                ? fullstackProjects
-                : frontendProjects
-              ).map((project, index) => (
+              {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.05 }}
                 >
-                  <Card className="group bg-transparent border-2 border-white/5 hover:border-emerald-500/40 transition-all duration-500 h-full flex flex-col md:flex-row overflow-hidden rounded-3xl">
-                    {/* Image Container: Fixed nesting and removed grid-rows-2 */}
-                    <div className="relative w-full md:w-56 shrink-0 overflow-hidden bg-black border-b-2 md:border-b-0 md:border-r-2 border-white/5">
+                  <Card className="group bg-[#14161C] border border-white/5 hover:border-white/10 transition-all duration-300 rounded-2xl overflow-hidden">
+                    {/* Image */}
+                    <div className="relative w-full md:w-96 shrink-0 md:mx-24 overflow-hidden rounded-lg">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover grayscale opacity-30 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
+                        className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
                       />
-                      {/* Subtle scanline overlay to match the tech theme */}
-                      <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0)_50%,rgba(16,185,129,0.02)_50%)] bg-[length:100%_4px] pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                     </div>
 
-                    {/* Content Side: Properly nested outside the image div */}
+                    {/* Content */}
                     <div className="flex flex-col flex-grow p-6">
-                      <CardHeader className="p-0 mb-4">
-                        <div className="flex justify-between items-start mb-2">
-                          <span className="text-[10px] font-mono text-emerald-500 font-black uppercase tracking-[0.3em]">
-                            {category} // PROJECT_0{project.id || index + 1}
-                          </span>
-                        </div>
-                        <CardTitle className="text-3xl font-black text-white group-hover:text-emerald-400 transition-colors tracking-tighter">
-                          {project.title.toUpperCase()}
+                      <CardHeader className="p-0 mb-3">
+                        <CardTitle className="text-xl font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                          {project.title}
                         </CardTitle>
                       </CardHeader>
 
                       <CardContent className="p-0 flex-grow">
-                        <CardDescription className="text-gray-400 text-base font-medium leading-relaxed line-clamp-2 mb-6">
+                        <CardDescription className="text-gray-400 text-sm leading-relaxed mb-4">
                           {project.description}
                         </CardDescription>
 
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-2">
                           {project.tags?.map((tag) => (
                             <span
                               key={tag}
-                              className="text-[11px] font-black text-white/20 uppercase tracking-widest group-hover:text-emerald-500/40 transition-colors"
+                              className="text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full"
                             >
-                              #{tag}
+                              {tag}
                             </span>
                           ))}
                         </div>
                       </CardContent>
 
-                      <CardFooter className="p-0 grid grid-cols-2 gap-4 pt-6 mt-6 border-t-2 border-white/5">
+                      <CardFooter className="p-0 flex gap-4 pt-6 mt-6 border-t border-white/5">
                         <a
                           href={project.github}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex items-center justify-center gap-3 py-4 rounded-xl border-2 border-white/10 text-white font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                          className="text-sm font-medium text-gray-400 hover:text-white transition flex items-center gap-2"
                         >
-                          <Github size={18} strokeWidth={3} /> REPO
+                          <Github size={16} /> Repository
                         </a>
+
                         <a
                           href={project.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex items-center justify-center gap-3 py-4 rounded-xl bg-emerald-500 text-black font-black text-xs uppercase tracking-widest hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)]"
+                          className="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition flex items-center gap-2"
                         >
-                          <ExternalLink size={18} strokeWidth={3} /> LIVE
+                          <ExternalLink size={16} /> Live Demo
                         </a>
                       </CardFooter>
                     </div>

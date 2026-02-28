@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed top-4 left-1/2 w-[95%] max-w-7xl z-50 bg-black/80 backdrop-blur-md  px-6 py-3 rounded-full text-white text-sm"
+      className="fixed top-4 left-1/2 w-[95%] max-w-7xl z-50 bg-black/80 backdrop-blur-md px-6 py-3 rounded-lg text-white text-sm"
       initial={{ y: -100, x: "-50%", opacity: 0 }}
       animate={{ y: 0, x: "-50%", opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -58,13 +58,14 @@ const Navbar = () => {
           >
             Contact
           </button>
-          {/* <button
+          <a
+            href="/public/Atharva_Resume.pdf"
             className="bg-white text-black px-5 py-2 rounded-full text-sm font-medium transition duration-300 
             shadow-[0px_0px_20px_2px_rgba(255,255,255,0.3)] cursor-pointer flex items-center gap-2 hover:bg-slate-100"
           >
             <ArrowDownToLine size={16} />
             Resume
-          </button> */}
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -98,9 +99,12 @@ const Navbar = () => {
               <button className="w-full border border-slate-600 py-3 rounded-full">
                 Contact
               </button>
-              {/* <button className="w-full bg-white text-black py-3 rounded-full font-bold">
+              <a
+                href="/public/Atharva_Resume(updated).pdf"
+                className="w-full text-center bg-white text-black py-3 rounded-full font-bold"
+              >
                 Resume
-              </button> */}
+              </a>
             </div>
           </motion.div>
         )}
